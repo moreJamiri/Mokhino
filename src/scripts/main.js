@@ -237,8 +237,8 @@ function startGame(form) {
   game = new Game(formData);
 
   // Game items
-  gameItems = document.querySelectorAll('.game-item');
-  gameItems.forEach(element => {
+  let game_items = document.querySelectorAll('.game-item');
+  game_items.forEach(element => {
     element.addEventListener('click', e => {
       e.target.parentElement.classList.add('show');
       activeItems = document.querySelectorAll('.game-item.show');
