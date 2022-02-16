@@ -233,7 +233,7 @@ class Game {
 
 // Start Game
 function startGame(form) {
-  formData = new FormData(form);
+  let formData = new FormData(form);
   game = new Game(formData);
 
   // Game items
