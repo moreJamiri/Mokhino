@@ -60,7 +60,7 @@ function calcScore(rights, moves, time) {
 }
 
 function getScores() {
-  scores = window.localStorage.getItem('scores');
+  let scores = window.localStorage.getItem('scores');
   if (!scores) {
     return [];
   }
@@ -112,7 +112,7 @@ function showScore(game, win) {
   
   saveScores(game.rights, game.moves, time);
 
-  scores = getScores();
+  let scores = getScores();
   table.innerHTML =
       `<tr><th>#</th><th>حرکت‌ها</th>
       <th>انتخاب صحیح</th>
@@ -120,7 +120,7 @@ function showScore(game, win) {
       <th>امتیاز</th></tr>`;
   for (let i = 0; i < scores.length; i++) {
     const score = scores[i];
-    row = document.createElement('tr');
+    let row = document.createElement('tr');
     row.innerHTML = `<td>${toPersian(i+1)}</td>
                     <td>${toPersian(score.moves)}</td>
                     <td>${toPersian(score.rights)}</td>
@@ -174,7 +174,7 @@ class Game {
       let item = document.createElement('div');
       item.classList = 'game-item';
       item.dataset.id = i;
-      content = gameContents.pop();
+      let content = gameContents.pop();
       if (this.gameTheme == 'icons') {
         item.innerHTML = `<i class="fa fa-${content}"></i>`;
       } else if (this.gameTheme == 'numbers') {
@@ -241,7 +241,7 @@ function startGame(form) {
   game_items.forEach(element => {
     element.addEventListener('click', e => {
       e.target.parentElement.classList.add('show');
-      activeItems = document.querySelectorAll('.game-item.show');
+      let activeItems = document.querySelectorAll('.game-item.show');
       if (activeItems.length > 1) {
         const gameboard = document.querySelector('.gameboard');
         gameboard.style.pointerEvents = 'none';
